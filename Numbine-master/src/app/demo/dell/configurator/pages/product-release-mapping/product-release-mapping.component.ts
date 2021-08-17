@@ -70,6 +70,13 @@ export class ProductReleaseMappingComponent implements OnInit
     });
   }
 
+  deleteFunction(index : number)
+  {
+    alert("Deleting item " + index);
+  }
+
+  updateFunction(index : number)
+  {
+    alert("Updating item " + index);
+  }
 }
-
-

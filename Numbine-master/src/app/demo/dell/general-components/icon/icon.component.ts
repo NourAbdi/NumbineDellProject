@@ -10,9 +10,17 @@ export class IconComponent implements OnInit {
   @Input()
   public type = "";
 
+  @Input()
+  public iconIndex : number;
+  @Input()
+  clickFunction : Function;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onClick()
+  {
+    this.clickFunction(this.iconIndex);
+  }
 }

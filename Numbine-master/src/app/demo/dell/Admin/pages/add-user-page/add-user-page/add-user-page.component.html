@@ -1,0 +1,83 @@
+<div class="col-sm-12">
+    <app-card cardTitle="Access - New User / Update User" [options]="false">
+        <div class="row">
+            <div class="col-md-6">
+                <form action="javascript:">
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <app-input type="text" classType="col-md-15"></app-input>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <app-input type="email" classType="col-md-15"></app-input>
+                        <small id="emailHelp" class="form-text text-muted" style="font-weight: bold;">
+                            This will be used as username</small>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="">Role</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>Admin</option>
+                            <option>User</option>
+                            <option>Configurator</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <form action="javascript:">
+
+                    <div class="form-group">
+                        <label for="">Phone</label>
+                        <app-input type="text" classType="col-md-15"></app-input>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <app-input type="password" classType="col-md-15"></app-input>
+                        <small class="form-text text-muted" style="font-weight: bold;">Must be at least 6
+                            characters</small>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Product Group</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option>PowerStore</option>
+                            <option>PowerFlex</option>
+                            <option>PowerMax</option>
+                        </select>
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="col-md-6">
+                <form action="javascript:">
+
+                    <div class="col-md-8">
+                        <app-numbine-check-box class="col" title="isActive"></app-numbine-check-box>
+                    </div>
+
+                    <div class="row">
+                        <div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                        <div class="col-md-5"></div>
+                        <div>
+                            <button type="reset" class="btn btn-primary">Cancel</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </app-card>
+</div>

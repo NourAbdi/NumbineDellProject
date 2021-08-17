@@ -10,35 +10,32 @@ import { SelectBoxItem } from '../../../models/SelectBoxItem';
 })
 export class ProductSelectorComponent implements OnInit, OnChanges {
   @Input()
-  public labelText : string;
+  public labelText: string;
   @Input()
-  public productList : Product[];
+  public productList: Product[];
 
-  public selectBoxItems : SelectBoxItem[];
-  
+  public selectBoxItems: SelectBoxItem[];
+
   selectedIndex: number = 0;
-  selectedProduct : Product;
+  selectedProduct: Product;
 
   @Output()
-  public onSelectionChanged : EventEmitter<Product> = new EventEmitter<Product>();
+  public onSelectionChanged: EventEmitter<Product> = new EventEmitter<Product>();
 
   constructor() { }
-  
-  
-  ngOnInit(): void {  }
-  
-  ngOnChanges(changes: SimpleChanges): void
-  {
+
+
+  ngOnInit(): void { }
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.selectBoxItems = this.generateSelectOptions();
     this.onSelectProduct(0);
   }
 
 
-  generateSelectOptions() : SelectBoxItem[]
-  {
-    let items : SelectBoxItem[] = [];
-    for (let i = 0; i < this.productList.length; i++) 
-    {
+  generateSelectOptions(): SelectBoxItem[] {
+    let items: SelectBoxItem[] = [];
+    for (let i = 0; i < this.productList.length; i++) {
       const element = this.productList[i];
       const selectItem = new SelectBoxItem();
       selectItem.id = i;
@@ -48,8 +45,7 @@ export class ProductSelectorComponent implements OnInit, OnChanges {
     return items;
   }
 
-  onSelectProduct(index : number)
-  {
+  onSelectProduct(index: number) {
     this.selectedProduct = this.productList[index];
     this.onSelectionChanged.emit(this.selectedProduct);
   }
