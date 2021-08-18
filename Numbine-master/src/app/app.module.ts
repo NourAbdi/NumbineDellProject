@@ -39,7 +39,6 @@ import { NumbineNavGroupComponent } from './demo/dell/general-components/numbine
 import { NumbineNavCollapseComponent } from './demo/dell/general-components/numbineNavigation/numbine-nav-collapse/numbine-nav-collapse.component';
 import { NumbineNavItemComponent } from './demo/dell/general-components/numbineNavigation/numbine-nav-item/numbine-nav-item.component';
 import { NumbineChartsComponent } from './demo/dell/general-components/numbine-charts/numbine-charts.component';
-import { NumbineAlertComponent } from './demo/dell/general-components/numbine-alert/numbine-alert.component';
 import { LogInComponent } from './demo/dell/generalScreens/log-in/log-in.component';
 import { ProductSelectorComponent } from './demo/dell/configurator/components/product-selector/product-selector.component';
 import { ProductReleaseMappingComponent } from './demo/dell/configurator/pages/product-release-mapping/product-release-mapping.component';
@@ -91,7 +90,6 @@ import { UserConfigGeneratorPageComponent } from './demo/dell/tester/user-config
     NumbineNavCollapseComponent,
     NumbineNavItemComponent,
     NumbineChartsComponent,
-    NumbineAlertComponent,
     ProductSelectorComponent,
     NumbineTableComponent,
     LogInComponent,
