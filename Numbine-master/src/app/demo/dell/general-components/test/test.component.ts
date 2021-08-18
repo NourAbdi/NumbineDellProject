@@ -4,6 +4,7 @@ import { NextConfig } from '../../../../app-config';
 import {NumbineChartData} from 'src/app/app/fack-db/numbine-chart-data';
 import { Location } from '@angular/common';
 import { DataTable } from '../../models/DataTable';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'app-test',
@@ -11,6 +12,12 @@ import { DataTable } from '../../models/DataTable';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+
+
+  public user = new User();
+
+  public name : string;
+
   // Actions Example
   trash : Boolean = true;
   edit : Boolean = false;
@@ -18,6 +25,7 @@ export class TestComponent implements OnInit {
   public trashClickTest(){
     alert('test trash')
   }
+  public textet = "";
 
   public editClickTest(){
     alert('test edit')
@@ -28,7 +36,7 @@ export class TestComponent implements OnInit {
     
   }
   title = ['Param Name(^v)'];
-  rows = [[1,],[3]];
+  rows = [[1],[3]];
   dataTable = new DataTable();
   // charts
   public numbineChartData: any;
@@ -86,6 +94,11 @@ export class TestComponent implements OnInit {
         this.navCollapsedMob = !this.navCollapsedMob;
       }
     }
+  }
+
+  public show(){
+
+    alert("the name is : " + this.name);
   }
 
 }
