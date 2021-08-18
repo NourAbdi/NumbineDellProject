@@ -12,7 +12,7 @@ import dellProject.numbine.beans.Parameter;
 import dellProject.numbine.beans.Value;
 
 @RestController
-@RequestMapping("Product")
+@RequestMapping("Parameter")
 public class ParameterController {
 
 	@Autowired
@@ -28,10 +28,7 @@ public class ParameterController {
 		return ParameterBL.deleteParam(productId, paramId);
 	}
 
-	@GetMapping("getAllParameters")
-	private List<Parameter> getAllParameters() {
-		return ParameterBL.getAllParameters();
-	}
+	
 	@GetMapping("addNewParam")
 	public boolean addNewParam(String paramName, String paramDescription, List<String> paramValues) {
 		return ParameterBL.addNewParam(paramName, paramDescription, paramValues);

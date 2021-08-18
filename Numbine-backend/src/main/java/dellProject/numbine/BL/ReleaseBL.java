@@ -15,6 +15,7 @@ public class ReleaseBL {
 
 	@Autowired
 	ProductRepository ProductRepo;
+	@Autowired
 	ReleaseRepository ReleaseRepo;
 	
 	

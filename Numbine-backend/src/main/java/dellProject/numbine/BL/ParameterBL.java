@@ -21,6 +21,7 @@ public class ParameterBL {
 
 	@Autowired
 	ProductRepository ProductRepo;
+	@Autowired
 	ParameterRepository ParameterRepo;
 
 	public List<Parameter> getAllParameters(int productId) {

@@ -27,7 +27,10 @@ public class User {
 	private String email;
 	
 	private String name;
+	
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "user")
 	private List<Role> roles;
+	
     private String password;
     private boolean status;
     private int phoneNumber;

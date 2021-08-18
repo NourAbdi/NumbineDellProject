@@ -87,11 +87,11 @@ public class UserController {
 	{
 		return userBL.getAllFilesByDate(sDate, eDate);
 	}
-	@GetMapping("deleteFile")
+	/*@GetMapping("deleteFile")
 	public void deleteFile(String fileName)
 	{
 	}
-	
+	*/
 	@GetMapping("getactiveUsers")
 	public List<User> getactiveUsers()
 	{

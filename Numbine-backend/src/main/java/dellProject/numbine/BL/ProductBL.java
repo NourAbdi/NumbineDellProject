@@ -42,17 +42,19 @@ public class ProductBL {
 		return repo.findAll();
 	}
 
-	public void updateProduct(int productId, String name, boolean status) {
+	public void updateProduct(int productId,String name, boolean status) {
 		Optional<Product> product = repo.findById(productId);
 		if (product != null) {
-			repo.updateProduct(productId, name, status);
+			Product product1 = product.get();
+			//need to set all feilds
+			repo.save(product1);
 		}
 	}
 
 	public void deleteProduct(int productId) {
 		Product product = findById(productId);
 		if (product != null) {
-			repo.updateProduct(productId, product.getProductName(), false);
+			repo.save(product);
 		}
 	}
 

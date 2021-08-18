@@ -11,9 +11,4 @@ import dellProject.numbine.beans.User;
 
 public interface ProductRepository extends JpaRepository<Product,Integer>{
 	public Product findByProductName(String name);
-	public void updateProduct(int productId,String name,boolean status);
-	public List<Release> getAllReleases(int productId);
-	public List<User> getAllUsers(int productId);
-	public List<User> getAllUsersNotInProduct(int productId);
-	
 }
