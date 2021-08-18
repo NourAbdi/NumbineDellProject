@@ -59,7 +59,8 @@ import { ForgotPassComponent } from './demo/dell/generalScreens/log-in/forgot-pa
 import { AddUserPageComponent } from './demo/dell/Admin/pages/add-user-page/add-user-page/add-user-page.component'
 import { ParamSelectorComponent } from './demo/dell/configurator/components/param-selector/param-selector.component';
 import { UserConfigGeneratorPageComponent } from './demo/dell/tester/user-config-generator-page/user-config-generator-page.component';
-import { SelectTupleComponent } from './demo/dell/tester/select-tuple/select-tuple.component'
+import { SelectTupleComponent } from './demo/dell/tester/select-tuple/select-tuple.component';
+import { DashboardPageComponent } from './demo/dell/Admin/pages/dashboard-page/dashboard-page.component'
 @NgModule({
   declarations: [
     NewReleaseComponent,
@@ -112,7 +113,8 @@ import { SelectTupleComponent } from './demo/dell/tester/select-tuple/select-tup
     AddUserPageComponent,
     ParamSelectorComponent,
     UserConfigGeneratorPageComponent,
-    SelectTupleComponent
+    SelectTupleComponent,
+    DashboardPageComponent
   ],
   imports: [
     BrowserModule,
