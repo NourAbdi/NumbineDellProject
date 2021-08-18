@@ -21,8 +21,12 @@ export class ProductReleaseMappingComponent implements OnInit
   public title = ['Param Name(^v)'];
   public rows = [["Temp"], ["Temp"]];
   public dataTable = new DataTable();
-
-  constructor(private productService: ProductService, private paramService: ParameterService) { }
+  currentProduct : Product;
+  constructor(private productService: ProductService, private paramService: ParameterService) 
+  {
+    this.deleteFunction = this.deleteFunction.bind(this);
+    this.updateFunction = this.updateFunction.bind(this);
+  }
 
   ngOnInit(): void
   {
@@ -41,10 +45,9 @@ export class ProductReleaseMappingComponent implements OnInit
     });
   }
 
-
-
   updateParams(currentProduct: Product)
   {
+    this.currentProduct = currentProduct;
     if (currentProduct != null)
     {
       let obsParams = this.paramService.getDummyParamsById(currentProduct.id);
@@ -70,12 +73,14 @@ export class ProductReleaseMappingComponent implements OnInit
     });
   }
 
-  deleteFunction(index : number)
+  deleteFunction(index: number)
   {
-    alert("Deleting item " + index);
+      this.paramService.deleteDummyProductFromParam(this.params[index], this.currentProduct);
+      this.params.splice(index, 1);
+      this.updateRows();
   }
 
-  updateFunction(index : number)
+  updateFunction(index: number)
   {
     alert("Updating item " + index);
   }
