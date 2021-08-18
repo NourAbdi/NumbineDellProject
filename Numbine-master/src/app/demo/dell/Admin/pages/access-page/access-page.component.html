@@ -1,1 +1,26 @@
-<app-numbine-table [dataTable]="dataTable"></app-numbine-table>
+<app-card>
+    <div class="col-md-8">
+        <form action="javascript:">
+            <div class="row">
+                <div class="form-group" style="align-self: flex-start;">
+                    <label for="">Role</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Admin</option>
+                        <option>User</option>
+                        <option>Configurator</option>
+                    </select>
+                </div>
+
+                <div class="col-md-8" style="align-self: center;">
+                    <app-numbine-check-box class="col" title="isActive"></app-numbine-check-box>
+                </div>
+
+                <div style="align-self: flex-end;">
+                    <button type="submit" class="btn btn-primary">New User</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <app-numbine-actions-table [dataTable]="dataTable"></app-numbine-actions-table>
+</app-card>

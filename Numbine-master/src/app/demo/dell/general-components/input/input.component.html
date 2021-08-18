@@ -1,24 +1,5 @@
-<div class="classType" [ngClass] = "this.classType">
-    <form action="javascript:">
-      <input [type]="type" class="form-control">
-      <!-- <div class="form-group">
-        <div *ngIf="this.type=='password'; then thenBlock else elseBlock"></div>
-        <ng-template #thenBlock>
-            <input [type]="type" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" >
-        </ng-template>
-        <ng-template #elseBlock>
-            <input [type]="type" class="form-control"#elseBlock>
-        </ng-template>
-      </div> -->
-      <!-- <container-element [ngSwitch]="type">
-        <some-element *ngSwitchCase="'password'">
-          <input [type]="type" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" >
-        </some-element>
-        <some-element *ngSwitchCase="'text'">
-          <input [type]="type" class="form-control"#elseBlock>
-        </some-element>
-    </container-element> -->
-    </form>
+<div class="classType" [ngClass]="this.classType">
+  <form action="javascript:">
+    <input [type]="type" class="form-control">
+  </form>
 </div>
-
-  

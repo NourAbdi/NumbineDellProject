@@ -12,6 +12,7 @@ export class InputComponent implements OnInit {
   @Input()
   public type = "text";
 
+
   @Input()
   public classType = "col-md-2";
   ngOnInit(): void {

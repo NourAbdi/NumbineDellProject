@@ -10,19 +10,19 @@ import { DataTable } from '../../models/DataTable';
 export class NumbineActionsTableComponent implements OnInit {
   @Input()
   dataTable: DataTable = new DataTable();
-  
+
   @Input()
-  trashBool : Boolean = true;
+  trashBool: Boolean = true;
   @Input()
-  trashClick : Function;
+  trashClick: Function;
   @Input()
   editBool: Boolean = true;
   @Input()
-  editClick : Function;
-  
+  editClick: Function;
+
   constructor() {
-    
-   }
+
+  }
 
   ngOnInit(): void {
   }
