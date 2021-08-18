@@ -1,7 +1,12 @@
 <app-card cardTitle="New Param Mapping">
     <h1 style="text-align: left">Product Release Mapping - New Param Mapping</h1>
     <br><br>
-    <table>
+    <table *ngIf="this.currentProduct!=null">
+        <tr>
+            <td colspan="2">
+                <h3>{{currentProduct.productName}}</h3>
+            </td>
+        </tr>
         <tr>
             <td colspan="2">
                 <app-param-selector labelText="Param Name:" [paramList]="parameters"
