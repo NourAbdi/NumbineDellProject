@@ -108,7 +108,7 @@ export class ParameterService
   }
   //  public deleteParameter(id:number): boolean
   //  {
-  //    return  this.webService.callService<boolean>("Parameter/deleteParameter$paramId="+id,);
+  //    return  this.webService.callService<boolean>("Parameter/deleteParameter&paramId="+id,);
   //   }
 
 
