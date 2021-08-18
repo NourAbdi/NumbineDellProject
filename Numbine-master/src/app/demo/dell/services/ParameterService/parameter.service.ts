@@ -102,10 +102,10 @@ export class ParameterService
     param.products.splice(param.products.indexOf(product), 1);
   }
 
-  public getParametersAsync(): Observable<Parameter[]>
-  {
-    return this.webService.callService<Parameter[]>("Parameter/getAllParameters",);
-  }
+  // public getParametersAsync(): Observable<Parameter[]>
+  // {
+  //   return this.webService.get<Parameter[]>("Parameter/getAllParameters",any);
+  // }
   //  public deleteParameter(id:number): boolean
   //  {
   //    return  this.webService.callService<boolean>("Parameter/deleteParameter&paramId="+id,);

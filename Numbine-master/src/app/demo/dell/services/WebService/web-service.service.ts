@@ -7,6 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class WebServiseService {
+  [x: string]: any;
   
 
   readonly ROOT_URL ="http://192.168.0.168:8080/";
