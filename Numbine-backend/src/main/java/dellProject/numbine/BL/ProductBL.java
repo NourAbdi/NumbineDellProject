@@ -17,16 +17,13 @@ import dellProject.numbine.repositories.ProductRepository;
 @Service
 public class ProductBL {
 
-	
-	
 	@Autowired
 	ProductRepository repo;
 
-	
 	public Product findById(int productId) {
 		return repo.findById(productId).get();
 	}
-	
+
 	public boolean addProduct(Product p) {
 		// check if product with same name already exists
 		Product product = repo.findByProductName(p.getProductName());
@@ -42,11 +39,11 @@ public class ProductBL {
 		return repo.findAll();
 	}
 
-	public void updateProduct(int productId,String name, boolean status) {
+	public void updateProduct(int productId, String name, boolean status) {
 		Optional<Product> product = repo.findById(productId);
 		if (product != null) {
 			Product product1 = product.get();
-			//need to set all feilds
+			// need to set all feilds
 			repo.save(product1);
 		}
 	}
@@ -60,36 +57,36 @@ public class ProductBL {
 
 	public List<Release> getAllReleases(int productId) {
 		Product product = findById(productId);
-		List<Release> releases=null;
+		List<Release> releases = null;
 		if (product != null) {
 			releases = product.getReleases();
 		}
 		return releases;
 	}
-	
-	public List<User> getAllUsers(int productId){
+
+	public List<User> getAllUsers(int productId) {
 		Product product = findById(productId);
 		return product.getUsers();
 	}
-	
-	public List<User> getAllUsersNotInProduct(int productId){
-		List<Product> products= repo.findAll();
+
+	public List<User> getAllUsersNotInProduct(int productId) {
+		List<Product> products = repo.findAll();
 		Set<User> users = new HashSet<>();
-		for(Product product: products) {
+		for (Product product : products) {
 			users.addAll(product.getUsers());
 		}
 		Product myProduct = findById(productId);
 		Set<User> myUsers = new HashSet<>();
 		myUsers.addAll(myProduct.getUsers());
-		for(User user:users) {
-			if(myUsers.contains(user)) {
+		for (User user : users) {
+			if (myUsers.contains(user)) {
 				users.remove(user);
 			}
 		}
 		return new ArrayList<>(users);
 	}
-	
-	public boolean updateProductUserList(int productId,List<User> users) {
+
+	public boolean updateProductUserList(int productId, List<User> users) {
 		Product product = findById(productId);
 		product.setUsers(users);
 		repo.save(product);

@@ -1,6 +1,5 @@
 package dellProject.numbine.BL;
 
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -45,16 +44,16 @@ public class ParameterBL {
 		return false;
 
 	}
-	
-	public List<Parameter> getAllParameters(){
+
+	public List<Parameter> getAllParameters() {
 		List<Product> products = ProductRepo.findAll();
-		Set<Parameter> Parameters=new HashSet<>();
-		for(Product product: products) {			
+		Set<Parameter> Parameters = new HashSet<>();
+		for (Product product : products) {
 			Parameters.addAll(product.getParameters());
 		}
-		return  new ArrayList<>(Parameters);
+		return new ArrayList<>(Parameters);
 	}
-	
+
 	public boolean addNewParam(String paramName, String paramDescription, List<String> paramValues) {
 		Parameter parameter = ParameterRepo.findByParameterName(paramName);
 		if (parameter != null) {
@@ -62,16 +61,17 @@ public class ParameterBL {
 		}
 		ParameterRepo.save(parameter);
 		return true;
-		
+
 	}
-	public boolean updateParam( int paramId, String paramName, String paramDescription, List<Value> paramValues) {
+
+	public boolean updateParam(int paramId, String paramName, String paramDescription, List<Value> paramValues) {
 		Parameter param = ParameterRepo.findByParameterName(paramName);
-		if (param==null) {
+		if (param == null) {
 			return false;
 		}
 		param.setDescription(paramDescription);
 		param.setValues(paramValues);
-		
+
 		return true;
 	}
 }

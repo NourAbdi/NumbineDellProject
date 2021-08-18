@@ -13,7 +13,7 @@ import dellProject.numbine.beans.Role;
 import dellProject.numbine.beans.User;
 
 public interface UserRepository extends JpaRepository<User,Integer>{
-//	public User getUserByEmail(String email);
+	public User getUserByEmail(String email);
 //	public List<Product> getProducts(String prodName,Date sDate,Date eDate);
 //	public List<Release> getReleases(int prodId);
 //	public List<User> sortUsersByDate(String role);

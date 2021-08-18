@@ -28,8 +28,6 @@ public class Parameter {
 	private boolean status;
 	private String description;
 
-	
-
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "parameter")
 	private List<Value> values;
 
@@ -78,8 +76,6 @@ public class Parameter {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-
 
 	public List<Value> getValues() {
 		return values;

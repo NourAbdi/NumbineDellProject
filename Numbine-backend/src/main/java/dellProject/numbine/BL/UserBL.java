@@ -16,8 +16,8 @@ import dellProject.numbine.repositories.UserRepository;
 
 @Service
 public class UserBL {
-//	@Autowired
-//	UserRepository repo;
+	@Autowired
+	UserRepository UserRepo;
 
 	public List<Product> getProducts(String prodName, Date sDate, Date eDate) {
 		return null;
@@ -63,8 +63,8 @@ public class UserBL {
 		return null;
 	}
 
-//	public void deleteFile(String fileName) {
-//	}
+	public void deleteFile(String fileName) {
+	}
 
 	public List<User> getactiveUsers() {
 		return null;
@@ -99,13 +99,13 @@ public class UserBL {
 	}
 
 	public User validate(String email, String password) {
-//		User user = repo.getUserByEmail(email);
-//		if (user != null) {
-//			if (user.getPassword().equals(password)) {
-//				return user;
-//			}
-//		}
-//
+		User user = UserRepo.getUserByEmail(email);
+		if (user != null) {
+			if (user.getPassword().equals(password)) {
+				return user;
+			}
+		}
+
 		return null;
 	}
 
