@@ -6,7 +6,7 @@ import { DataTable } from '../../../models/DataTable';
 import { Product } from '../../../models/Product';
 import { Release } from '../../../models/Release';
 import { Value } from '../../../models/Value';
-import { ConfiguratorDataService } from '../../../services/ConfiguratorDataService/configurator-data.service';
+import { DataService } from '../../../services/DataService/data.service';
 
 @Component({
   selector: 'app-new-param-mapping',
@@ -29,7 +29,7 @@ export class NewParamMappingComponent implements OnInit
 
   releases: Release[] = [];
 
-  constructor(private parameterService: ParameterService, private configDataService: ConfiguratorDataService) { }
+  constructor(private parameterService: ParameterService, private dataService: DataService) { }
 
   ngOnInit(): void
   {
@@ -49,7 +49,7 @@ export class NewParamMappingComponent implements OnInit
     });
 
     // Subscribe the currentProduct to the value saved in the Data Service
-    this.productSubscription = this.configDataService.currentProduct.subscribe(currentProduct =>
+    this.productSubscription = this.dataService.currentProduct.subscribe(currentProduct =>
     {
       this.currentProduct = currentProduct;
       if (this.currentProduct != null)
@@ -60,7 +60,7 @@ export class NewParamMappingComponent implements OnInit
     });
 
     // Subscribe the currentParameter to the value saved in the Data Service
-    this.parameterSubscription = this.configDataService.currentParameter.subscribe(currentParameter =>
+    this.parameterSubscription = this.dataService.currentParameter.subscribe(currentParameter =>
     {
       this.currentParameter = currentParameter;
       this.updateValues(this.currentParameter);

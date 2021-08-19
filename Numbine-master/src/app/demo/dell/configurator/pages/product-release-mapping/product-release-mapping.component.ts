@@ -5,7 +5,7 @@ import { ProductService } from 'src/app/demo/dell/services/ProductService/produc
 import { ParameterService } from 'src/app/demo/dell/services/ParameterService/parameter.service';
 import { DataTable } from '../../../models/DataTable';
 import { Subscription } from 'rxjs';
-import { ConfiguratorDataService } from 'src/app/demo/dell/services/ConfiguratorDataService/configurator-data.service';
+import {DataService } from 'src/app/demo/dell/services/DataService/data.service';
 
 @Component({
   selector: 'app-product-release-mapping',
@@ -29,7 +29,7 @@ export class ProductReleaseMappingComponent implements OnInit, OnDestroy
   currentParameter: Parameter;
   parameterSubscription: Subscription;
 
-  constructor(private productService: ProductService, private paramService: ParameterService, private configDataService: ConfiguratorDataService) 
+  constructor(private productService: ProductService, private paramService: ParameterService, private dataService: DataService) 
   {
     this.deleteFunction = this.deleteFunction.bind(this);
     this.updateFunction = this.updateFunction.bind(this);
@@ -55,13 +55,13 @@ export class ProductReleaseMappingComponent implements OnInit, OnDestroy
     });
 
     // Subscribe the currentProduct to the value saved in the Data Service
-    this.productSubscription = this.configDataService.currentProduct.subscribe(currentProduct => {
+    this.productSubscription = this.dataService.currentProduct.subscribe(currentProduct => {
       this.currentProduct = currentProduct
       console.log("Updated current product " + this);
       this.updateParams(this.currentProduct);
     });
     // Subscribe the currentParameter to the value saved in the Data Service
-    this.parameterSubscription = this.configDataService.currentParameter.subscribe(currentParameter => {
+    this.parameterSubscription = this.dataService.currentParameter.subscribe(currentParameter => {
       this.currentParameter = currentParameter;
       console.log("Updated current parameter " + this);
     });
@@ -79,7 +79,7 @@ export class ProductReleaseMappingComponent implements OnInit, OnDestroy
     if(this.currentProduct != currentProduct)
     {
       // this.currentProduct = currentProduct;
-      this.configDataService.changeProduct(currentProduct);
+      this.dataService.changeProduct(currentProduct);
     }
     if (currentProduct != null)
     {
@@ -116,6 +116,6 @@ export class ProductReleaseMappingComponent implements OnInit, OnDestroy
   {
     // TODO:
     // This only saves the parameter to update... need to route to the new param mapping page to edit it
-    this.configDataService.changeParameter(this.params[index]);
+    this.dataService.changeParameter(this.params[index]);
   }
 }
