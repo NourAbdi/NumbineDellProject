@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { release } from 'process';
 import { Subscription } from 'rxjs';
 import { Product } from 'src/app/demo/dell/models/Product'
 import { ProductService } from 'src/app/demo/dell/services/ProductService/product.service';
 import { DataTable } from '../../../models/DataTable';
+import { Release } from '../../../models/Release';
 import { DataService } from '../../../services/DataService/data.service';
 
 @Component({
@@ -12,6 +14,7 @@ import { DataService } from '../../../services/DataService/data.service';
 })
 export class NewReleaseComponent implements OnInit {
   public products: Product[] = [];
+  public release: Release=new Release(0,'',false,'','');
   productSubscription: Subscription;
   public title = ['Release', 'Version', 'Status'];
   public rows = [["Temp"], ["Temp"]];
@@ -67,5 +70,17 @@ export class NewReleaseComponent implements OnInit {
       // this.currentProduct = currentProduct;
       this.dataService.changeProduct(product);
     }
+  }
+  onNameChange(str:string)
+  {
+    this.release.releaseName=str;
+  }
+  onVersionChange(str:string)
+  {
+    this.release.version=str;
+  }
+  onStatusChange(e:boolean)
+  {
+    this.release.status=e;
   }
 }

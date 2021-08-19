@@ -75,7 +75,7 @@ export class ProductReleaseMappingComponent implements OnInit, OnDestroy
 
   updateParams(currentProduct: Product)
   {
-    if(this.currentProduct != currentProduct)
+    if(this.currentProduct)
     {
       // this.currentProduct = currentProduct;
       this.dataService.changeProduct(currentProduct);
