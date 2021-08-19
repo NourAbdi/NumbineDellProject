@@ -1,9 +1,10 @@
-import { Component,NgZone, OnInit } from '@angular/core';
-import {ButtonClass} from 'src/app/demo/enums/myenum.enum'
+import { Component, NgZone, OnInit } from '@angular/core';
+import { ButtonClass } from 'src/app/demo/enums/myenum.enum'
 import { NextConfig } from '../../../../app-config';
-import {NumbineChartData} from 'src/app/app/fack-db/numbine-chart-data';
+import { NumbineChartData } from 'src/app/app/fack-db/numbine-chart-data';
 import { Location } from '@angular/common';
 import { DataTable } from '../../models/DataTable';
+import { User } from '../../models/User';
 
 @Component({
   selector: 'app-test',
@@ -11,29 +12,36 @@ import { DataTable } from '../../models/DataTable';
   styleUrls: ['./test.component.scss']
 })
 export class TestComponent implements OnInit {
+
+
+  public user = new User();
+
+  public name: string;
+
   // Actions Example
-  trash : Boolean = true;
-  edit : Boolean = false;
-  
-  public trashClickTest(){
+  trash: Boolean = true;
+  edit: Boolean = false;
+
+  public trashClickTest() {
     alert('test trash')
   }
+  public textet = "";
 
-  public editClickTest(){
+  public editClickTest() {
     alert('test edit')
   }
 
-  heloo(event: KeyboardEvent){
-    this.helo =(event.target as HTMLInputElement).value ;
-    
+  heloo(event: KeyboardEvent) {
+    this.helo = (event.target as HTMLInputElement).value;
+
   }
   title = ['Param Name(^v)'];
-  rows = [[1,],[3]];
+  rows = [[1], [3]];
   dataTable = new DataTable();
   // charts
   public numbineChartData: any;
   // other
-  public helo='';
+  public helo = '';
   buttonClass = ButtonClass;
   public flatConfig: any;
   public navCollapsed: boolean;
@@ -70,8 +78,8 @@ export class TestComponent implements OnInit {
         (document.querySelector('#nav-ps-flat-able') as HTMLElement).style.maxHeight = '100%'; // 100% amit
       }, 500);
     }
-    this.dataTable.titles=this.title;
-    this.dataTable.rows=this.rows;
+    this.dataTable.titles = this.title;
+    this.dataTable.rows = this.rows;
 
   }
 
@@ -86,6 +94,10 @@ export class TestComponent implements OnInit {
         this.navCollapsedMob = !this.navCollapsedMob;
       }
     }
+  }
+
+  public show() {
+    alert("the name is : " + this.name);
   }
 
 }

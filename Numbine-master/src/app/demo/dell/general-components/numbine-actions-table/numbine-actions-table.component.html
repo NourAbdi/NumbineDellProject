@@ -12,22 +12,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let row of dataTable.rows">
+                    <tr *ngFor="let row of dataTable.rows; let i = index">
                         <td *ngFor="let data of row">{{data}}</td>
                         <div *ngIf=" editBool == true || trashBool == true; then trashANDeditBlock"></div>
                         <ng-template #trashANDeditBlock>
-                            <td>
+                            <td style="width: 15%;">
                                 <div class="row col-md-auto">
                                     <div *ngIf="editBool == true; then editBlock"></div>
                                     <ng-template #editBlock>
-                                        <app-icon type="edit" (click)="editClick()"></app-icon>
+                                        <app-icon type="edit" [iconIndex]="i" [clickFunction]="editClick"></app-icon>
                                     </ng-template>
 
                                     <div class="col-md-auto"></div>
 
                                     <div *ngIf="trashBool == true;then trashBlock"></div>
                                     <ng-template #trashBlock>
-                                        <app-icon type="trash" (click)="trashClick()"></app-icon>
+                                        <app-icon type="trash" [iconIndex]="i" [clickFunction]="trashClick"></app-icon>
                                     </ng-template>
 
                                 </div>

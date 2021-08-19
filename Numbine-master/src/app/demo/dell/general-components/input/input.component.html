@@ -1,5 +1,6 @@
-<div class="classType" [ngClass]="this.classType">
-  <form action="javascript:">
-    <input [type]="type" class="form-control">
-  </form>
+<div class="classType" [ngClass]="classType">
+  <!-- <form> -->
+  <input [type]="type" class="form-control" [(ngModel)]="inputModel"
+    (ngModelChange)="inputModelChange.emit(inputModel)">
+  <!-- </form> -->
 </div>

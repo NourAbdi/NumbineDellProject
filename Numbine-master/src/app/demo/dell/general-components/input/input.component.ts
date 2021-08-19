@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -11,6 +12,12 @@ export class InputComponent implements OnInit {
 
   @Input()
   public type = "text";
+
+  @Input()
+  inputModel: string;
+
+  @Output()
+  inputModelChange = new EventEmitter<string>();
 
 
   @Input()

@@ -1,6 +1,7 @@
-import { UserService } from './../../../../services/UserService/user.service';
+
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/demo/dell/models/User';
+import { UserService } from '../../../services/UserService/user.service';
 
 @Component({
   selector: 'app-add-user-page',
@@ -24,7 +25,7 @@ export class AddUserPageComponent implements OnInit {
 
   }
 
-  public createUser(name: string, email: string, phone: string, password: string, role: string, productGroup: string): void {
+  public createUser(): void {
     // this.name = name;
     // this.email = email;
     // this.phone = phone;
@@ -37,15 +38,16 @@ export class AddUserPageComponent implements OnInit {
   }
 
   public showUser(): void {
-    alert(`
-    Name: ${this.user.name} 
-    Email: ${this.user.email}
-    phone: ${this.user.phone}
-    Password: ${this.user.password}
-    Role: ${this.user.role}
-    Product_Group: ${this.user.productGroup}
-    Status: ${this.user.status}
-    `);
-  }
+    // alert(`
+    // Name: ${this.user.name} 
+    // Email: ${this.user.email}
+    // phone: ${this.user.phone}
+    // Password: ${this.user.password}
+    // Role: ${this.user.role}
+    // Product_Group: ${this.user.productGroup}
+    // Status: ${this.user.status}
+    // `);
+    console.log(this.user);
 
+  }
 }

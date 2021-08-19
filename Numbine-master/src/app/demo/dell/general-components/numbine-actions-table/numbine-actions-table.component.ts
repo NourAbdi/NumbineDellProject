@@ -20,6 +20,14 @@ export class NumbineActionsTableComponent implements OnInit {
   @Input()
   editClick: Function;
 
+  value: any;
+
+  getID(name) {
+    // this.value=0;
+    // this.value=name;
+    alert(this.value)
+  }
+
   constructor() {
 
   }

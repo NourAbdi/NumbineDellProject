@@ -6,7 +6,7 @@
 
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <app-input type=" text" classType="col-md-15" aria-required="true" [(ngModel)]="user.name"
+                        <app-input type=" text" classType="col-md-15" aria-required="true" [(inputModel)]="user.name"
                             name="name">
                         </app-input>
                     </div>
@@ -14,7 +14,7 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
 
-                        <app-input type="email" classType="col-md-15" aria-required="true" [(ngModel)]="user.email"
+                        <app-input type="email" classType="col-md-15" aria-required="true" [(inputModel)]="user.email"
                             name="email">
                         </app-input>
                         <small id="emailHelp" class="form-text text-muted" style="font-weight: bold;">
@@ -40,7 +40,7 @@
 
                     <div class="form-group">
                         <label for="">Phone</label>
-                        <app-input type="text" classType="col-md-15" aria-required="true" [(ngModel)]="user.phone"
+                        <app-input type="text" classType="col-md-15" aria-required="true" [(inputModel)]="user.phone"
                             name="phone">
                         </app-input>
                     </div>
@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <app-input type="password" classType="col-md-15" aria-required="true"
-                            [(ngModel)]="user.password" name="password"></app-input>
+                            [(inputModel)]="user.password" name="password"></app-input>
                         <small class="form-text text-muted" style="font-weight: bold;">Must be at least 6
                             characters</small>
                     </div>
@@ -74,6 +74,7 @@
                     <div class="col-md-8">
                         <app-numbine-check-box class="col" title="isActive" [(ngModel)]="user.status" name="status">
                         </app-numbine-check-box>
+                        <!-- <input type="checkbox" [(ngModel)]="user.status" name="status"> -->
                     </div>
 
                     <div class="row">
@@ -90,70 +91,3 @@
         </div>
     </app-card>
 </div>
-
-
-<!-- <div class="auth-wrapper">
-    <div class="col-sm-5">
-        <div class="auth-content text-center">
-            <img src="" alt="" class="img-fluid mb-4">
-            <div class="card borderless">
-                <div class="row align-items-center text-center">
-                    <div class="col-md-12">
-                        <div class="card-body">
-                            <h4 class="mb-3 f-w-400">Personal Info</h4>
-
-                            <div class="form-group">
-                                <label for="name">Name</label> &nbsp;
-                                <input type="text" class="form-control" placeholder="Name .." #name>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Email</label> &nbsp;
-                                <input type="email" class="form-control" placeholder="Email address .." #email>
-                                <small id="emailHelp" class="form-text text-muted" style="font-weight: bold;">
-                                    This will be used as username</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phone">Phone</label> &nbsp;
-                                <input type="number" class="form-control" placeholder="Type phone here .." #phone>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" placeholder="Password .." #password>
-                                <small class="form-text text-muted" style="font-weight: bold;">Must be at least 6
-                                    characters</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Product Group</label>
-                                <select #productGroup class="form-control" id="exampleFormControlSelect1">
-                                    <option>PowerStore</option>
-                                    <option>PowerFlex</option>
-                                    <option>PowerMax</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="">Role</label>
-                                <select #role class="form-control" id="exampleFormControlSelect1">
-                                    <option>Admin</option>
-                                    <option>User</option>
-                                    <option>Configurator</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group text-left mt-2">
-                            </div>
-                            <div>
-                                <button class="btn btn-block btn-primary mb-4"
-                                    (click)="createUser(name.value,email.value, phone.value,password.value, role.value, productGroup.value)">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->

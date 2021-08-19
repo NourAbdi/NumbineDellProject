@@ -39,7 +39,6 @@ import { NumbineNavGroupComponent } from './demo/dell/general-components/numbine
 import { NumbineNavCollapseComponent } from './demo/dell/general-components/numbineNavigation/numbine-nav-collapse/numbine-nav-collapse.component';
 import { NumbineNavItemComponent } from './demo/dell/general-components/numbineNavigation/numbine-nav-item/numbine-nav-item.component';
 import { NumbineChartsComponent } from './demo/dell/general-components/numbine-charts/numbine-charts.component';
-import { NumbineAlertComponent } from './demo/dell/general-components/numbine-alert/numbine-alert.component';
 import { LogInComponent } from './demo/dell/generalScreens/log-in/log-in.component';
 import { ProductSelectorComponent } from './demo/dell/configurator/components/product-selector/product-selector.component';
 import { ProductReleaseMappingComponent } from './demo/dell/configurator/pages/product-release-mapping/product-release-mapping.component';
@@ -56,10 +55,9 @@ import { NumbineTableComponent } from './demo/dell/general-components/numbine-ta
 import { AppLoadingComponent } from './demo/dell/general-components/app-loading/app-loading.component';
 import { NumbineActionsTableComponent } from './demo/dell/general-components/numbine-actions-table/numbine-actions-table.component'
 import { ForgotPassComponent } from './demo/dell/generalScreens/log-in/forgot-pass/forgot-pass.component';
-import { AddUserPageComponent } from './demo/dell/Admin/pages/add-user-page/add-user-page/add-user-page.component'
 import { ParamSelectorComponent } from './demo/dell/configurator/components/param-selector/param-selector.component';
 import { UserConfigGeneratorPageComponent } from './demo/dell/tester/user-config-generator-page/user-config-generator-page.component';
-import { SelectTupleComponent } from './demo/dell/tester/select-tuple/select-tuple.component';
+import { AddUserPageComponent } from './demo/dell/Admin/pages/add-user-page/add-user-page.component';
 import { DashboardPageComponent } from './demo/dell/Admin/pages/dashboard-page/dashboard-page.component'
 @NgModule({
   declarations: [
@@ -93,7 +91,6 @@ import { DashboardPageComponent } from './demo/dell/Admin/pages/dashboard-page/d
     NumbineNavCollapseComponent,
     NumbineNavItemComponent,
     NumbineChartsComponent,
-    NumbineAlertComponent,
     ProductSelectorComponent,
     NumbineTableComponent,
     LogInComponent,
@@ -110,11 +107,10 @@ import { DashboardPageComponent } from './demo/dell/Admin/pages/dashboard-page/d
     AppLoadingComponent,
     NumbineActionsTableComponent,
     ForgotPassComponent,
-    AddUserPageComponent,
     ParamSelectorComponent,
     UserConfigGeneratorPageComponent,
-    SelectTupleComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
+    AddUserPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 
 <div >
-    <container-element [ngSwitch]="type">
+    <container-element [ngSwitch]="type" (click)="onClick()">
         <some-element *ngSwitchCase="'trash'">
-            <div  class="fa-3x fa fa-trash"></div>
+            <div  class="fa-2x fa fa-trash"></div>
         </some-element>
         <some-other-element *ngSwitchCase="'edit'">
-            <div  class="fa fa-edit fa-3x"></div>
+            <div  class="fa fa-edit fa-2x"></div>
         </some-other-element>
     </container-element>
 </div>
