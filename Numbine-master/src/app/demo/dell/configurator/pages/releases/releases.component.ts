@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { number } from 'ngx-custom-validators/src/app/number/validator';
+import { Subscription } from 'rxjs';
 import { DataTable } from '../../../models/DataTable';
 import { Product } from '../../../models/Product';
 import { Release } from '../../../models/Release';
+import { DataService } from '../../../services/DataService/data.service';
 import { ProductService } from '../../../services/ProductService/product.service';
 
 @Component({
@@ -21,7 +24,12 @@ export class ReleasesComponent implements OnInit {
   public rows = [["Temp"], ["Temp"]];
   public dataTable = new DataTable();
   currentProduct: Product;
-  constructor(private productService: ProductService) {
+  productSubscription: Subscription;
+  currentRelease: Release;
+  ReleaseSubscription: Subscription;
+
+
+  constructor(private productService: ProductService, private dataService: DataService) {
     // this.deleteFunction = this.deleteFunction.bind(this);
     this.updateFunction = this.updateFunction.bind(this);
   }
@@ -39,7 +47,25 @@ export class ReleasesComponent implements OnInit {
       alert("Error in loading products, product-release-mapping.component.ts");
 
     });
+    // Subscribe the currentProduct to the value saved in the Data Service
+    this.productSubscription = this.dataService.currentProduct.subscribe(currentProduct => {
+      this.currentProduct = currentProduct
+      console.log("Updated current product " + this);
+      // this.updateRelease(this.currentProduct);
+    });
+    this.ReleaseSubscription=this.dataService.currentRelease.subscribe(currentRelease=>{
+      this.currentRelease=currentRelease
+      console.log("Updated current release"+ this);
+    });
+
   }
+   // We must unsubscribe before the component gets destroyed!
+   ngOnDestroy(): void
+   {
+     this.productSubscription.unsubscribe();
+     this.ReleaseSubscription.unsubscribe();
+   }
+
 
   updateRows() {
     this.rows.length = 0;
@@ -49,9 +75,25 @@ export class ReleasesComponent implements OnInit {
       });
     });
   }
+  //
   updateFunction(index: number)
-  {
-    alert("Updating item " + index);
+  { 
+    alert("the index"+ index);
+   let counter:number=0
+    this.products.forEach(product=>{
+      product.releases.forEach(rel=>{
+        if(counter==index){
+          this.dataService.changeProduct(product);
+          this.dataService.changeRelease(rel);
+
+        }//move the other page
+        else{
+          counter++;
+        }
+
+      })
+    }
+      )
   }
 
 }
