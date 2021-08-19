@@ -16,7 +16,7 @@ export class ReleasesComponent implements OnInit {
 
   public products: Product[] = [];
 
-  public title = ['SeqID', 'Param Name(^v)', 'Release', 'Version', 'Status'];
+  public title = ['Product Name(^v)', 'Release', 'Version', 'Status'];
   // 
   public rows = [["Temp"], ["Temp"]];
   public dataTable = new DataTable();
@@ -33,6 +33,7 @@ export class ReleasesComponent implements OnInit {
     let obsProducts = this.productService.getDummyProducts();
     obsProducts.subscribe(products => {
       this.products = products;
+      this.updateRows();
       // Add loading?
     }, error => {
       alert("Error in loading products, product-release-mapping.component.ts");
