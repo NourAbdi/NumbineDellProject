@@ -6,7 +6,7 @@ import { Product } from '../../models/Product';
 @Injectable({
   providedIn: 'root'
 })
-export class ConfiguratorDataService 
+export class DataService 
 {
   private productSource = new BehaviorSubject<Product>(null);
   currentProduct = this.productSource.asObservable();
