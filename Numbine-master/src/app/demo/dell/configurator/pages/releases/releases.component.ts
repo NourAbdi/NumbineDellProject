@@ -42,11 +42,9 @@ export class ReleasesComponent implements OnInit {
 
   updateRows() {
     this.rows.length = 0;
-    this.products.forEach(element => {
-      this.products.forEach(element => {
-        this.rows.push(["element.productName"]);
-        this.rows.push(["element.releases"]);
-        this.rows.push(["element.status"]);
+    this.products.forEach(prod => {
+      prod.releases.forEach(rel => {
+        this.rows.push([prod.productName , rel.releaseName , rel.version , rel.status+'']);
       });
     });
   }
