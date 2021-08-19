@@ -5,7 +5,7 @@ import { ProductService } from 'src/app/demo/dell/services/ProductService/produc
 import { ParameterService } from 'src/app/demo/dell/services/ParameterService/parameter.service';
 import { DataTable } from '../../../models/DataTable';
 import { Subscription } from 'rxjs';
-import {DataService } from 'src/app/demo/dell/services/DataService/data.service';
+import { DataService } from 'src/app/demo/dell/services/DataService/data.service';
 
 @Component({
   selector: 'app-product-release-mapping',
@@ -41,7 +41,7 @@ export class ProductReleaseMappingComponent implements OnInit, OnDestroy
     // Initialize Table
     this.dataTable.rows = this.rows;
     this.dataTable.titles = this.title;
-    
+
     // Get All Products
     let obsProducts = this.productService.getDummyProducts();
     obsProducts.subscribe(products =>
@@ -55,15 +55,14 @@ export class ProductReleaseMappingComponent implements OnInit, OnDestroy
     });
 
     // Subscribe the currentProduct to the value saved in the Data Service
-    this.productSubscription = this.dataService.currentProduct.subscribe(currentProduct => {
-      this.currentProduct = currentProduct
-      console.log("Updated current product " + this);
-      this.updateParams(this.currentProduct);
+    this.productSubscription = this.dataService.currentProduct.subscribe(currentProduct =>
+    {
+      this.updateParams(currentProduct);
     });
     // Subscribe the currentParameter to the value saved in the Data Service
-    this.parameterSubscription = this.dataService.currentParameter.subscribe(currentParameter => {
+    this.parameterSubscription = this.dataService.currentParameter.subscribe(currentParameter =>
+    {
       this.currentParameter = currentParameter;
-      console.log("Updated current parameter " + this);
     });
   }
 
@@ -81,7 +80,7 @@ export class ProductReleaseMappingComponent implements OnInit, OnDestroy
       // this.currentProduct = currentProduct;
       this.dataService.changeProduct(currentProduct);
     }
-    if (currentProduct != null)
+    if(currentProduct != null)
     {
       let obsParams = this.paramService.getDummyParamsById(currentProduct.id);
       obsParams.subscribe(params =>
