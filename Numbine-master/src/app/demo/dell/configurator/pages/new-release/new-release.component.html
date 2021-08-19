@@ -1,1 +1,50 @@
-<p>new-release works!</p>
+<app-card cardTitle="Release - New Release">
+    <h1 style="text-align: left">Release - New Release</h1>
+    <br><br>
+    <table>
+        <tr>
+            <td colspan="4">
+                <app-product-selector labelText="Product name:" [productList]="products"
+                    (onSelectionChanged)="updateProducts($event)">
+                </app-product-selector>
+            </td>
+            <td colspan="1">
+                <app-numbine-actions-table *ngIf="Flag" [dataTable]="dataTable" trashBool=false editBool=false>
+                </app-numbine-actions-table>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                Release name:
+            </td>
+            <td colspan="1">
+                <app-input (change)="onNameChange($event.target.value)" type="name" classType="col-md-10"></app-input>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Version:
+            </td>
+            <td colspan="1">
+                <app-input (change)="onVersionChange($event.target.value)" type="version" classType="col-md-10">
+                </app-input>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Active/Inactive<app-numbine-check-box (change)="onVersionChange($event.target.value)"></app-numbine-check-box>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <app-button name="Quit" type="btn btn-primary"> Quit</app-button>
+            </td>
+            <td>
+                <app-button name="Save" type="btn btn-primary"> Save</app-button>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+
+</app-card>

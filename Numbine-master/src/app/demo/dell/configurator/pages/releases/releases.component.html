@@ -1,6 +1,22 @@
-<h1>Releases</h1>
-<div class="content">
+<app-card cardTitle="Releases">
+    <h1 style="text-align: left">Releases</h1>
+    <br><br>
+    <table>
+        <tr>
+            <td colspan="1">
+                <app-button name='New Release'></app-button>
+                <!--Routing-->
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <app-numbine-actions-table [dataTable]="dataTable" [trashBool]=false [editBool]=""
+                    [trashClick]="" [editClick]="updateFunction">
+                </app-numbine-actions-table>
+            </td>
+        </tr>
+    </table>
+    <br><br>
 
-<br><br>
-<app-button name ='New Release'></app-button>
-</div>
+</app-card>
