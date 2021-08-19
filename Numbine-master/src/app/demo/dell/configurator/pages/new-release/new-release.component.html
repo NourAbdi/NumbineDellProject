@@ -1,1 +1,26 @@
-<p>new-release works!</p>
+<app-card cardTitle="Release - New Release">
+    <h1 style="text-align: left">Release - New Release</h1>
+    <br><br>
+    <table>
+        <tr>
+            <td colspan="2">
+                <app-product-selector labelText="Product name:" [productList]="products" (onSelectionChanged)="updateProducts($event)">
+                </app-product-selector>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <td>
+                <app-numbine-actions-table *ngIf="Flag" [dataTable]="dataTable" trashBool=false editBool=false> </app-numbine-actions-table>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left; vertical-align: top;">
+                <!-- <app-button name='New Param'></app-button> -->
+                <!--Routing-->
+            </td>
+        </tr>
+    </table>
+    <br><br>
+
+</app-card>
