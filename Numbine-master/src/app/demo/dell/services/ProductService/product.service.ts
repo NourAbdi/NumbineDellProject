@@ -31,9 +31,9 @@ export class ProductService {
       });
     return obs;
   }
-  public getProductsAsync() : Observable<Product[]>
-  {
-    return this.webService.callService<Product[]>("Product/getAllProducts");
-  }
+  // public getProductsAsync() : Observable<Product[]>
+  // {
+  //   return this.webService.callService<Product[]>("Product/getAllProducts");
+  // }
   
 }

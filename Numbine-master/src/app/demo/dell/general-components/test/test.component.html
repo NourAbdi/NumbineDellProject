@@ -32,13 +32,16 @@
         <h2>2. Input Overview</h2>
         <h3>In order to get the right size choose between 1 to a big number in the classType, in example below classType is 'col-md-3' and another one is 'col-md-7'</h3>
         <app-input type="text"  classType="col-md-3" (keyup.enter) = "heloo($event)"></app-input>
-        <app-input type="password"  classType="col-md-5" (keyup.enter) = "heloo($event)"></app-input>
+        
         <app-icon type="edit"></app-icon>
     </app-card>
 </div> -->
 <!-- <div>  -->
     <!-- <app-numbine-table [dataTable]="dataTable"> </app-numbine-table> -->
 <!-- </div> -->
-<app-card>
+<!-- <app-card>
     <app-numbine-actions-table [dataTable] = "dataTable" [trashBool]="trash" [editBool] = "edit" [trashClick] = "trashClickTest" [editClick] = "editClickTest"></app-numbine-actions-table>
-</app-card>
+</app-card> -->
+<app-input type="txt"  classType="col-md-5" [(inputModel)]="name"></app-input>
+<app-button [type] = "buttonClass.Warning" (click)="show()" name="button"></app-button>
+

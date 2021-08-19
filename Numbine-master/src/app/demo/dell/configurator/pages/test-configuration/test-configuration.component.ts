@@ -3,6 +3,7 @@ import { ParameterService } from '../../../services/ParameterService/parameter.s
 import { Parameter } from 'src/app/demo/dell/models/Parameter';
 import { DataTable } from '../../../models/DataTable';
 import { WebServiseService } from '../../../services/WebService/web-service.service';
+import { number } from 'ngx-custom-validators/src/app/number/validator';
 @Component({
   selector: 'app-test-configuration',
   templateUrl: './test-configuration.component.html',

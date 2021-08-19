@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataTable } from '../../../models/DataTable';
 
 @Component({
   selector: 'app-test-configrations-edit-new',
@@ -6,13 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-configrations-edit-new.component.scss']
 })
 export class TestConfigrationsEditNewComponent implements OnInit {
-public title:string[];
-public row:number[][];
+public title:string[]=["aa","s"];
+public row:any[][]=[][3];
 public name: string;
+dataTable: DataTable = new DataTable();
+
   constructor() { }
 
   ngOnInit(): void {
     this.name="save";
+    this.dataTable.titles=this.title;
+    this.dataTable.rows=this.row;
     // this.table.row=this.row;
   }
 

@@ -1,16 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from 'src/app/demo/dell/models/Product'
 import { Parameter } from 'src/app/demo/dell/models/Parameter'
 import { ProductService } from 'src/app/demo/dell/services/ProductService/product.service';
 import { ParameterService } from 'src/app/demo/dell/services/ParameterService/parameter.service';
 import { DataTable } from '../../../models/DataTable';
+import { Subscription } from 'rxjs';
+import {DataService } from 'src/app/demo/dell/services/DataService/data.service';
 
 @Component({
   selector: 'app-product-release-mapping',
   templateUrl: './product-release-mapping.component.html',
   styleUrls: ['./product-release-mapping.component.scss']
 })
-export class ProductReleaseMappingComponent implements OnInit
+export class ProductReleaseMappingComponent implements OnInit, OnDestroy
 {
   trash: Boolean = true;
   edit: Boolean = true;
@@ -21,18 +23,26 @@ export class ProductReleaseMappingComponent implements OnInit
   public title = ['Param Name(^v)'];
   public rows = [["Temp"], ["Temp"]];
   public dataTable = new DataTable();
-  currentProduct : Product;
-  constructor(private productService: ProductService, private paramService: ParameterService) 
+
+  currentProduct: Product;
+  productSubscription: Subscription;
+  currentParameter: Parameter;
+  parameterSubscription: Subscription;
+
+  constructor(private productService: ProductService, private paramService: ParameterService, private dataService: DataService) 
   {
     this.deleteFunction = this.deleteFunction.bind(this);
     this.updateFunction = this.updateFunction.bind(this);
   }
 
+
   ngOnInit(): void
   {
+    // Initialize Table
     this.dataTable.rows = this.rows;
     this.dataTable.titles = this.title;
-
+    
+    // Get All Products
     let obsProducts = this.productService.getDummyProducts();
     obsProducts.subscribe(products =>
     {
@@ -43,11 +53,34 @@ export class ProductReleaseMappingComponent implements OnInit
       alert("Error in loading products, product-release-mapping.component.ts");
 
     });
+
+    // Subscribe the currentProduct to the value saved in the Data Service
+    this.productSubscription = this.dataService.currentProduct.subscribe(currentProduct => {
+      this.currentProduct = currentProduct
+      console.log("Updated current product " + this);
+      this.updateParams(this.currentProduct);
+    });
+    // Subscribe the currentParameter to the value saved in the Data Service
+    this.parameterSubscription = this.dataService.currentParameter.subscribe(currentParameter => {
+      this.currentParameter = currentParameter;
+      console.log("Updated current parameter " + this);
+    });
+  }
+
+  // We must unsubscribe before the component gets destroyed!
+  ngOnDestroy(): void
+  {
+    this.productSubscription.unsubscribe();
+    this.parameterSubscription.unsubscribe();
   }
 
   updateParams(currentProduct: Product)
   {
-    this.currentProduct = currentProduct;
+    if(this.currentProduct != currentProduct)
+    {
+      // this.currentProduct = currentProduct;
+      this.dataService.changeProduct(currentProduct);
+    }
     if (currentProduct != null)
     {
       let obsParams = this.paramService.getDummyParamsById(currentProduct.id);
@@ -55,7 +88,6 @@ export class ProductReleaseMappingComponent implements OnInit
       {
         this.params = params;
         this.updateRows();
-        console.log(this.params);
         // Add loading?
       }, error =>
       {
@@ -75,13 +107,15 @@ export class ProductReleaseMappingComponent implements OnInit
 
   deleteFunction(index: number)
   {
-      this.paramService.deleteDummyProductFromParam(this.params[index], this.currentProduct);
-      this.params.splice(index, 1);
-      this.updateRows();
+    this.paramService.deleteDummyProductFromParam(this.params[index], this.currentProduct);
+    this.params.splice(index, 1);
+    this.updateRows();
   }
 
   updateFunction(index: number)
   {
-    alert("Updating item " + index);
+    // TODO:
+    // This only saves the parameter to update... need to route to the new param mapping page to edit it
+    this.dataService.changeParameter(this.params[index]);
   }
 }
